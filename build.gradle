@@ -1,0 +1,334 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'ru.celestial'
+version = 'Beta-1.16.5'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.compilerArgs += ['-nowarn', '-Xlint:none', '-Xmaxerrs', '10000']
+}
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    remapWorker
+}
+
+dependencies {
+    // Minecraft client classes are kept separately; all external runtime libraries
+    // are resolved from the supplied libraries/ directory.
+    implementation files('libs/celestial-client-remapped.jar')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    remapWorker 'org.ow2.asm:asm:9.7.1'
+    remapWorker 'org.ow2.asm:asm-commons:9.7.1'
+}
+
+// The loader receives one client jar. Embed the remapped Minecraft classes so
+// net.minecraft.client.main.Main is available at runtime.
+tasks.named('jar') {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from {
+        zipTree(file('libs/celestial-client-remapped.jar')).matching {
+            exclude('net/minecraft/client/main/Main.class')
+        }
+    }
+}
+
+tasks.register('remapClientJar') {
+    group = 'build'
+    description = 'Remaps celestial-client-remapped.jar to match reorganized package structure'
+    
+    doLast {
+        def mappings = [
+            // event
+            'celestial/EventTarget': 'celestial/event/EventTarget',
+            'celestial/PacketEvent': 'celestial/event/PacketEvent',
+            'celestial/RenderEvent': 'celestial/event/RenderEvent',
+            // setting
+            'celestial/Setting': 'celestial/setting/Setting',
+            'celestial/ButtonSetting': 'celestial/setting/ButtonSetting',
+            'celestial/CheckGroup': 'celestial/setting/CheckGroup',
+            'celestial/GroupSetting': 'celestial/setting/GroupSetting',
+            'celestial/KeyBind': 'celestial/setting/KeyBind',
+            // module core
+            'celestial/Module': 'celestial/module/Module',
+            'celestial/ModuleManager': 'celestial/module/ModuleManager',
+            'celestial/Category': 'celestial/module/Category',
+            // combat
+            'celestial/AntiBot': 'celestial/module/combat/AntiBot',
+            'celestial/AttackAura': 'celestial/module/combat/AttackAura',
+            'celestial/AutoDuel': 'celestial/module/combat/AutoDuel',
+            'celestial/AutoExplosion': 'celestial/module/combat/AutoExplosion',
+            'celestial/AutoGApple': 'celestial/module/combat/AutoGApple',
+            'celestial/AutoPotion': 'celestial/module/combat/AutoPotion',
+            'celestial/AutoSwap': 'celestial/module/combat/AutoSwap',
+            'celestial/AutoTotem': 'celestial/module/combat/AutoTotem',
+            'celestial/AutoUse': 'celestial/module/combat/AutoUse',
+            'celestial/BowSpam': 'celestial/module/combat/BowSpam',
+            'celestial/Criticals': 'celestial/module/combat/Criticals',
+            'celestial/FastSwap': 'celestial/module/combat/FastSwap',
+            'celestial/HitBoxes': 'celestial/module/combat/HitBoxes',
+            'celestial/HitSounds': 'celestial/module/combat/HitSounds',
+            'celestial/Popka': 'celestial/module/combat/Popka',
+            'celestial/SuperBow': 'celestial/module/combat/SuperBow',
+            'celestial/TapeMouse': 'celestial/module/combat/TapeMouse',
+            'celestial/TriggerBot': 'celestial/module/combat/TriggerBot',
+            'celestial/Velocity': 'celestial/module/combat/Velocity',
+            'celestial/FriendProtect': 'celestial/module/combat/FriendProtect',
+            // movement
+            'celestial/AutoSprint': 'celestial/module/movement/AutoSprint',
+            'celestial/Blink': 'celestial/module/movement/Blink',
+            'celestial/BlocksLift': 'celestial/module/movement/BlocksLift',
+            'celestial/Flight': 'celestial/module/movement/Flight',
+            'celestial/GuiMove': 'celestial/module/movement/GuiMove',
+            'celestial/KeepSprint': 'celestial/module/movement/KeepSprint',
+            'celestial/NoClip': 'celestial/module/movement/NoClip',
+            'celestial/NoSlow': 'celestial/module/movement/NoSlow',
+            'celestial/Speed': 'celestial/module/movement/Speed',
+            'celestial/Spider': 'celestial/module/movement/Spider',
+            'celestial/Strafe': 'celestial/module/movement/Strafe',
+            'celestial/SuperFirework': 'celestial/module/movement/SuperFirework',
+            'celestial/Timer': 'celestial/module/movement/Timer',
+            'celestial/WaterSpeed': 'celestial/module/movement/WaterSpeed',
+            // render
+            'celestial/ArrayListHud': 'celestial/module/render/ArrayListHud',
+            'celestial/BlockEsp': 'celestial/module/render/BlockEsp',
+            'celestial/ChinaHat': 'celestial/module/render/ChinaHat',
+            'celestial/Crosshair': 'celestial/module/render/Crosshair',
+            'celestial/DeathCoords': 'celestial/module/render/DeathCoords',
+            'celestial/Esp2D': 'celestial/module/render/Esp2D',
+            'celestial/Hud': 'celestial/module/render/Hud',
+            'celestial/ItemPhysics': 'celestial/module/render/ItemPhysics',
+            'celestial/JumpCircles': 'celestial/module/render/JumpCircles',
+            'celestial/NoRender': 'celestial/module/render/NoRender',
+            'celestial/Notifications': 'celestial/module/render/Notifications',
+            'celestial/Pointers': 'celestial/module/render/Pointers',
+            'celestial/ShulkerPreview': 'celestial/module/render/ShulkerPreview',
+            'celestial/StaffViewer': 'celestial/module/render/StaffViewer',
+            'celestial/StructureTimer': 'celestial/module/render/StructureTimer',
+            'celestial/SwingAnimations': 'celestial/module/render/SwingAnimations',
+            'celestial/TimeChanger': 'celestial/module/render/TimeChanger',
+            'celestial/Trails': 'celestial/module/render/Trails',
+            // player
+            'celestial/AutoExp': 'celestial/module/player/AutoExp',
+            'celestial/AutoFish': 'celestial/module/player/AutoFish',
+            'celestial/AutoLeave': 'celestial/module/player/AutoLeave',
+            'celestial/AutoReconnect': 'celestial/module/player/AutoReconnect',
+            'celestial/AutoRespawn': 'celestial/module/player/AutoRespawn',
+            'celestial/AutoTool': 'celestial/module/player/AutoTool',
+            'celestial/ChestStealer': 'celestial/module/player/ChestStealer',
+            'celestial/ElytraSwap': 'celestial/module/player/ElytraSwap',
+            'celestial/FastBreak': 'celestial/module/player/FastBreak',
+            'celestial/FreeCamera': 'celestial/module/player/FreeCamera',
+            'celestial/GhostHand': 'celestial/module/player/GhostHand',
+            'celestial/ItemsDelay': 'celestial/module/player/ItemsDelay',
+            'celestial/NoDelay': 'celestial/module/player/NoDelay',
+            'celestial/NoInteract': 'celestial/module/player/NoInteract',
+            'celestial/NoPush': 'celestial/module/player/NoPush',
+            'celestial/NoServerRots': 'celestial/module/player/NoServerRots',
+            'celestial/Nuker': 'celestial/module/player/Nuker',
+            'celestial/ProjectileHelper': 'celestial/module/player/ProjectileHelper',
+            'celestial/StreamerMode': 'celestial/module/player/StreamerMode',
+            // util
+            'celestial/AntiAfk': 'celestial/module/util/AntiAfk',
+            'celestial/AntiShuffler': 'celestial/module/util/AntiShuffler',
+            'celestial/AutoAccept': 'celestial/module/util/AutoAccept',
+            'celestial/AutoAuth': 'celestial/module/util/AutoAuth',
+            'celestial/AutoBuy': 'celestial/module/util/AutoBuy',
+            'celestial/BaseFinder': 'celestial/module/util/BaseFinder',
+            'celestial/CasinoBot': 'celestial/module/util/CasinoBot',
+            'celestial/ChatHelper': 'celestial/module/util/ChatHelper',
+            'celestial/ClanUpgrader': 'celestial/module/util/ClanUpgrader',
+            'celestial/ClickFriend': 'celestial/module/util/ClickFriend',
+            'celestial/ClickPearl': 'celestial/module/util/ClickPearl',
+            'celestial/CreeperFarm': 'celestial/module/util/CreeperFarm',
+            'celestial/EventParser': 'celestial/module/util/EventParser',
+            'celestial/FarmBuilder': 'celestial/module/util/FarmBuilder',
+            'celestial/FtHelper': 'celestial/module/util/FtHelper',
+            'celestial/GriefJoiner': 'celestial/module/util/GriefJoiner',
+            'celestial/HwHelper': 'celestial/module/util/HwHelper',
+            'celestial/ItemScroller': 'celestial/module/util/ItemScroller',
+            'celestial/ItemsOverlay': 'celestial/module/util/ItemsOverlay',
+            'celestial/LeaveTracker': 'celestial/module/util/LeaveTracker',
+            'celestial/MinecraftOptimizer': 'celestial/module/util/MinecraftOptimizer',
+            'celestial/PotionTracker': 'celestial/module/util/PotionTracker',
+            'celestial/RwHelper': 'celestial/module/util/RwHelper',
+            'celestial/SrpSpoofer': 'celestial/module/util/SrpSpoofer',
+            'celestial/TestFunc': 'celestial/module/util/TestFunc',
+            'celestial/TotemTracker': 'celestial/module/util/TotemTracker',
+            'celestial/TpsSync': 'celestial/module/util/TpsSync',
+            'celestial/UseTracker': 'celestial/module/util/UseTracker',
+            'celestial/XRay': 'celestial/module/util/XRay',
+            // clickgui
+            'celestial/ClickGuiScreen': 'celestial/ui/clickgui/ClickGuiScreen',
+            'celestial/ClickGuiTheme': 'celestial/ui/clickgui/ClickGuiTheme',
+            'celestial/GuiComponent': 'celestial/ui/clickgui/GuiComponent',
+            'celestial/GuiList': 'celestial/ui/clickgui/GuiList',
+            // hud
+            'celestial/HudWidget': 'celestial/ui/hud/HudWidget',
+            'celestial/NotificationStyle': 'celestial/ui/hud/NotificationStyle',
+            'celestial/TargetHud': 'celestial/ui/hud/TargetHud',
+            // manager
+            'celestial/ConfigManager': 'celestial/manager/ConfigManager',
+            'celestial/FontManager': 'celestial/manager/FontManager',
+            'celestial/ShaderManager': 'celestial/manager/ShaderManager',
+            'celestial/SkinProvider': 'celestial/manager/SkinProvider',
+            'celestial/ThemeManager': 'celestial/manager/ThemeManager',
+            'celestial/ThemeType': 'celestial/manager/ThemeType',
+            // util
+            'celestial/AnimValue': 'celestial/util/AnimValue',
+            'celestial/BlurShader': 'celestial/util/BlurShader',
+            'celestial/ColorHelper': 'celestial/util/ColorHelper',
+            'celestial/FuntimeEnchantment': 'celestial/util/FuntimeEnchantment',
+            'celestial/MinecraftAccessor': 'celestial/util/MinecraftAccessor',
+            'celestial/ReversedList': 'celestial/util/ReversedList',
+            'celestial/SyntheticSwitch': 'celestial/util/SyntheticSwitch',
+            'celestial/ZipStream': 'celestial/util/ZipStream'
+        ]
+
+        def sourceJar = file('libs/celestial-client-remapped.jar.bak')
+        if (!sourceJar.exists()) {
+            sourceJar = file('libs/celestial-client-remapped.jar')
+        }
+        def targetJar = file('libs/celestial-client-remapped.jar')
+        def tempJar = file('libs/celestial-client-remapped.tmp')
+
+        def urls = configurations.remapWorker.files.collect { it.toURI().toURL() } as URL[]
+        def cl = new URLClassLoader(urls, ClassLoader.systemClassLoader)
+
+        def classReaderClass = cl.loadClass('org.objectweb.asm.ClassReader')
+        def classWriterClass = cl.loadClass('org.objectweb.asm.ClassWriter')
+        def classRemapperClass = cl.loadClass('org.objectweb.asm.commons.ClassRemapper')
+        def simpleRemapperClass = cl.loadClass('org.objectweb.asm.commons.SimpleRemapper')
+
+        def remapperInstance = simpleRemapperClass.getConstructor(Map.class).newInstance(mappings)
+
+        println "[Remapper] Remapping ${sourceJar.name} -> ${targetJar.name}..."
+
+        def zipIn = new java.util.zip.ZipFile(sourceJar)
+        def zipOut = new java.util.zip.ZipOutputStream(new FileOutputStream(tempJar))
+
+        def entries = zipIn.entries()
+        while (entries.hasMoreElements()) {
+            def entry = entries.nextElement()
+            def name = entry.name
+            def is = zipIn.getInputStream(entry)
+            def bytes = is.readAllBytes()
+            is.close()
+
+            if (name.endsWith('.class')) {
+                try {
+                    def cr = classReaderClass.getConstructor(byte[].class).newInstance([bytes] as Object[])
+                    def cw = classWriterClass.getConstructor(int.class).newInstance([0] as Object[])
+                    def remapper = classRemapperClass.getConstructor(cl.loadClass('org.objectweb.asm.ClassVisitor'), cl.loadClass('org.objectweb.asm.commons.Remapper')).newInstance([cw, remapperInstance] as Object[])
+                    def acceptMethod = classReaderClass.getMethod('accept', cl.loadClass('org.objectweb.asm.ClassVisitor'), int.class)
+                    acceptMethod.invoke(cr, [remapper, 0] as Object[])
+                    bytes = cw.toByteArray()
+
+                    def entryClassName = name.substring(0, name.length() - 6)
+                    if (mappings.containsKey(entryClassName)) {
+                        name = mappings[entryClassName] + '.class'
+                    }
+                } catch (Exception e) {
+                    println "Warning remapping ${name}: ${e.message}"
+                }
+            }
+
+            def newEntry = new java.util.zip.ZipEntry(name)
+            zipOut.putNextEntry(newEntry)
+            zipOut.write(bytes)
+            zipOut.closeEntry()
+        }
+
+        zipIn.close()
+        zipOut.close()
+
+        if (targetJar.exists()) targetJar.delete()
+        tempJar.renameTo(targetJar)
+
+        println "[Remapper] Done! Successfully remapped jar."
+    }
+}
+
+
+application {
+    mainClass = 'offline.launcher.OfflineLauncher'
+}
+
+def configureClientExec(JavaExec task) {
+    def targetGameDir = file('run')
+    if (!targetGameDir.exists()) targetGameDir.mkdirs()
+    def defaultMcAssets = file("${System.getProperty('user.home')}/AppData/Roaming/.minecraft/assets")
+    def runAssets = file('run/assets')
+    // A folder only counts as "real" assets if it actually has the asset index file
+    // (indexes/1.16.json) that vanilla sound/lang loading depends on -- just existing
+    // as an empty/partial directory (common with other launchers) is not enough.
+    def hasRealAssets = { File dir -> file("${dir}/indexes/1.16.json").exists() }
+    def targetAssetsDir = hasRealAssets(runAssets) ? runAssets
+        : (hasRealAssets(defaultMcAssets) ? defaultMcAssets : runAssets)
+
+    println "[Celestial] Using assets dir: ${targetAssetsDir.absolutePath} (has index: ${hasRealAssets(targetAssetsDir)})"
+
+    task.javaLauncher = javaToolchains.launcherFor(java.toolchain)
+    task.classpath = sourceSets.main.runtimeClasspath
+    task.mainClass = 'offline.launcher.OfflineLauncher'
+    task.workingDir = targetGameDir
+    
+    task.jvmArgs = [
+        "-Xms512m",
+        "-Xmx4g",
+        "-Djava.library.path=${file('natives').absolutePath}",
+        "-Djna.library.path=${file('natives').absolutePath}",
+        "-Dorg.lwjgl.librarypath=${file('natives').absolutePath}",
+        "-Djna.tmpdir=${file('natives').absolutePath}",
+        "-Dsun.net.client.defaultConnectTimeout=1500",
+        "-Dsun.net.client.defaultReadTimeout=1500",
+        "-Dlog4j2.formatMsgNoLookups=true",
+        "--add-opens=java.base/java.lang=ALL-UNNAMED",
+        "--add-opens=java.base/java.lang.reflect=ALL-UNNAMED",
+        "--add-opens=java.base/java.net=ALL-UNNAMED",
+        "--add-opens=java.base/java.nio=ALL-UNNAMED",
+        "--add-opens=java.base/jdk.internal.misc=ALL-UNNAMED",
+        "--add-opens=java.base/sun.nio.ch=ALL-UNNAMED",
+        "--add-opens=jdk.unsupported/sun.misc=ALL-UNNAMED",
+        "--add-exports=java.base/jdk.internal.misc=ALL-UNNAMED"
+    ]
+    
+    task.args = [
+        '--username', 'Player',
+        '--version', 'Beta 1.16.5',
+        '--gameDir', targetGameDir.absolutePath,
+        '--assetsDir', targetAssetsDir.absolutePath,
+        '--assetIndex', '1.16',
+        '--uuid', 'bd346dd5-ac1c-427d-87e8-73bdd4bf3e13',
+        '--accessToken', '0',
+        '--userType', 'legacy',
+        '--versionType', 'release',
+        '--userProperties', '{}',
+        '--width', '1280',
+        '--height', '720'
+    ]
+}
+
+tasks.named('run', JavaExec) {
+    group = 'execution'
+    description = 'Runs the Celestial Client'
+    configureClientExec(it)
+}
+
+tasks.register('runClient', JavaExec) {
+    group = 'execution'
+    description = 'Runs the Celestial Client'
+    configureClientExec(it)
+}

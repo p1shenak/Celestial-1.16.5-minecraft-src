@@ -1,0 +1,12 @@
+public interface celestial.OA extends celestial.MinecraftAccessor {
+  public abstract void id_byte(java.lang.Class<?>);
+  public abstract void id_byte(java.lang.Object);
+  public abstract void id_class(celestial.Oy_1);
+  public abstract void id_class(java.lang.String, celestial.Oq_1);
+  public abstract boolean id_class(java.lang.Class<?>);
+  public abstract <T> T id_class(T);
+  public abstract <T extends celestial.Om_1> T id_class(T);
+  public abstract void id_break(celestial.Oy_1);
+  public abstract void id_break(java.lang.Class<?>);
+  public abstract void id_break(java.lang.Object);
+}

@@ -1,0 +1,919 @@
+public class celestial.rrQX extends java.lang.Enum<celestial.rrQX> implements celestial.MinecraftAccessor {
+  public java.lang.Object[] fields09f1f28026cd378cb9df490a64ac8f2a;
+
+  private static byte[] bytes09f1f28026cd378cb9df490a64ac8f2a;
+
+  private static short[] shorts09f1f28026cd378cb9df490a64ac8f2a;
+
+  private static java.lang.String[] strings09f1f28026cd378cb9df490a64ac8f2a;
+
+  private static boolean[] booleans09f1f28026cd378cb9df490a64ac8f2a;
+
+  public static java.lang.Object[] staticFields09f1f28026cd378cb9df490a64ac8f2a;
+
+  public celestial.ClickGuiScreen id_byte();
+    Code:
+       0: aload_0
+       1: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+       4: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+       7: ldc           #25                 // int 38
+       9: saload
+      10: aaload
+      11: checkcast     #27                 // class celestial/ClickGuiScreen
+      14: areturn
+
+  private static void id_int();
+    Code:
+       0: bipush        6
+       2: newarray       byte
+       4: dup
+       5: iconst_0
+       6: iconst_2
+       7: bastore
+       8: dup
+       9: iconst_1
+      10: iconst_3
+      11: bastore
+      12: dup
+      13: iconst_2
+      14: bipush        24
+      16: bastore
+      17: dup
+      18: iconst_3
+      19: bipush        9
+      21: bastore
+      22: dup
+      23: iconst_4
+      24: iconst_4
+      25: bastore
+      26: dup
+      27: iconst_5
+      28: iconst_2
+      29: bastore
+      30: putstatic     #31                 // Field bytes09f1f28026cd378cb9df490a64ac8f2a:[B
+      33: return
+
+  private celestial.rrQX();
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: invokespecial #35                 // Method java/lang/Enum."<init>":(Ljava/lang/String;I)V
+       6: aload_0
+       7: invokevirtual #38                 // Method id_native:()V
+      10: return
+
+  static {};
+    Code:
+       0: invokestatic  #42                 // Method ntfClinit:()V
+       3: return
+
+  public static celestial.rrQX[] values();
+    Code:
+       0: getstatic     #46                 // Field staticFields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+       3: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+       6: ldc           #47                 // int 0
+       8: saload
+       9: aaload
+      10: checkcast     #49                 // class "[Lcelestial/rrQX;"
+      13: invokevirtual #53                 // Method "[Lcelestial/rrQX;".clone:()Ljava/lang/Object;
+      16: checkcast     #49                 // class "[Lcelestial/rrQX;"
+      19: areturn
+
+  public static celestial.rrQX valueOf(java.lang.String);
+    Code:
+       0: ldc           #2                  // class celestial/rrQX
+       2: aload_0
+       3: invokestatic  #58                 // Method java/lang/Enum.valueOf:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
+       6: checkcast     #2                  // class celestial/rrQX
+       9: areturn
+
+  private static long id_class(long);
+    Code:
+       0: lload_0
+       1: bipush        32
+       3: invokestatic  #66                 // Method java/lang/Long.rotateLeft:(JI)J
+       6: ldc2_w        #67                 // long -7213762120603438659l
+       9: lxor
+      10: lreturn
+
+  private static int id_class(int);
+    Code:
+       0: iload_0
+       1: bipush        16
+       3: invokestatic  #74                 // Method java/lang/Integer.rotateLeft:(II)I
+       6: ldc           #75                 // int 1312094857
+       8: ixor
+       9: ireturn
+
+  private static java.lang.invoke.MethodHandles$Lookup id_class(java.lang.reflect.Method, java.lang.Class) throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException;
+    Code:
+       0: aload_0
+       1: aconst_null
+       2: getstatic     #31                 // Field bytes09f1f28026cd378cb9df490a64ac8f2a:[B
+       5: ldc           #47                 // int 0
+       7: baload
+       8: anewarray     #82                 // class java/lang/Object
+      11: dup
+      12: getstatic     #84                 // Field booleans09f1f28026cd378cb9df490a64ac8f2a:[Z
+      15: ldc           #85                 // int 8
+      17: baload
+      18: aload_1
+      19: aastore
+      20: dup
+      21: getstatic     #84                 // Field booleans09f1f28026cd378cb9df490a64ac8f2a:[Z
+      24: ldc           #86                 // int 9
+      26: baload
+      27: invokestatic  #92                 // Method java/lang/invoke/MethodHandles.lookup:()Ljava/lang/invoke/MethodHandles$Lookup;
+      30: aastore
+      31: invokevirtual #98                 // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+      34: checkcast     #100                // class java/lang/invoke/MethodHandles$Lookup
+      37: areturn
+
+  public static java.lang.String id_class(java.lang.String) throws java.lang.Exception;
+    Code:
+       0: ldc           #105                // String DES/CBC/PKCS5Padding
+       2: invokestatic  #111                // Method javax/crypto/Cipher.getInstance:(Ljava/lang/String;)Ljavax/crypto/Cipher;
+       5: astore_1
+       6: new           #113                // class javax/crypto/spec/SecretKeySpec
+       9: dup
+      10: bipush        8
+      12: newarray       byte
+      14: dup
+      15: iconst_0
+      16: bipush        126
+      18: bastore
+      19: dup
+      20: iconst_1
+      21: bipush        -48
+      23: bastore
+      24: dup
+      25: iconst_2
+      26: bipush        11
+      28: bastore
+      29: dup
+      30: iconst_3
+      31: bipush        -46
+      33: bastore
+      34: dup
+      35: iconst_4
+      36: bipush        -56
+      38: bastore
+      39: dup
+      40: iconst_5
+      41: bipush        110
+      43: bastore
+      44: dup
+      45: bipush        6
+      47: bipush        -82
+      49: bastore
+      50: dup
+      51: bipush        7
+      53: bipush        -38
+      55: bastore
+      56: ldc           #115                // String DES
+      58: invokespecial #118                // Method javax/crypto/spec/SecretKeySpec."<init>":([BLjava/lang/String;)V
+      61: astore_2
+      62: new           #120                // class javax/crypto/spec/IvParameterSpec
+      65: dup
+      66: bipush        8
+      68: newarray       byte
+      70: invokespecial #123                // Method javax/crypto/spec/IvParameterSpec."<init>":([B)V
+      73: astore_3
+      74: aload_1
+      75: iconst_2
+      76: aload_2
+      77: aload_3
+      78: invokevirtual #127                // Method javax/crypto/Cipher.init:(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
+      81: new           #129                // class java/lang/String
+      84: dup
+      85: aload_1
+      86: aload_0
+      87: getstatic     #135                // Field java/nio/charset/StandardCharsets.ISO_8859_1:Ljava/nio/charset/Charset;
+      90: invokevirtual #139                // Method java/lang/String.getBytes:(Ljava/nio/charset/Charset;)[B
+      93: invokevirtual #143                // Method javax/crypto/Cipher.doFinal:([B)[B
+      96: getstatic     #146                // Field java/nio/charset/StandardCharsets.UTF_8:Ljava/nio/charset/Charset;
+      99: invokespecial #149                // Method java/lang/String."<init>":([BLjava/nio/charset/Charset;)V
+     102: areturn
+
+  public celestial.rrvV id_class();
+    Code:
+       0: aload_0
+       1: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+       4: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+       7: ldc           #151                // int 33
+       9: saload
+      10: aaload
+      11: checkcast     #153                // class celestial/rrvV
+      14: areturn
+
+  public celestial.ConfigManager id_break();
+    Code:
+       0: aload_0
+       1: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+       4: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+       7: ldc           #156                // int 31
+       9: saload
+      10: aaload
+      11: checkcast     #158                // class celestial/ConfigManager
+      14: areturn
+
+  public celestial.rrwe_3 id_throws();
+    Code:
+       0: aload_0
+       1: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+       4: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+       7: ldc           #161                // int 36
+       9: saload
+      10: aaload
+      11: checkcast     #163                // class celestial/rrwe_3
+      14: areturn
+
+  private static void ntfClinit();
+    Code:
+       0: invokestatic  #166                // Method id_final:()V
+       3: invokestatic  #169                // Method id_new:()V
+       6: invokestatic  #172                // Method id_continue:()V
+       9: invokestatic  #174                // Method id_int:()V
+      12: invokestatic  #177                // Method id_volatile:()V
+      15: return
+
+  public celestial.OA id_finally();
+    Code:
+       0: aload_0
+       1: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+       4: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+       7: ldc           #180                // int 39
+       9: saload
+      10: aaload
+      11: checkcast     #182                // class celestial/OA
+      14: areturn
+
+  public celestial.rrIJ id_catch();
+    Code:
+       0: aload_0
+       1: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+       4: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+       7: ldc           #185                // int 34
+       9: saload
+      10: aaload
+      11: checkcast     #187                // class celestial/rrIJ
+      14: areturn
+
+  public void id_extends();
+    Code:
+       0: aload_0
+       1: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+       4: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+       7: ldc           #189                // int 24
+       9: saload
+      10: aaload
+      11: checkcast     #182                // class celestial/OA
+      14: invokestatic  #194                // Method celestial/rrLM.id_class:()Lcelestial/rrLM;
+      17: invokeinterface #197,  2          // InterfaceMethod celestial/OA.id_class:(Ljava/lang/Object;)Ljava/lang/Object;
+      22: pop
+      23: aload_0
+      24: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+      27: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+      30: ldc           #198                // int 25
+      32: saload
+      33: aaload
+      34: checkcast     #163                // class celestial/rrwe_3
+      37: invokevirtual #200                // Method celestial/rrwe_3.id_catch:()V
+      40: aload_0
+      41: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+      44: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+      47: ldc           #201                // int 26
+      49: saload
+      50: aaload
+      51: checkcast     #187                // class celestial/rrIJ
+      54: getstatic     #203                // Field strings09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/String;
+      57: ldc           #204                // int 2
+      59: aaload
+      60: getstatic     #84                 // Field booleans09f1f28026cd378cb9df490a64ac8f2a:[Z
+      63: ldc           #205                // int 6
+      65: baload
+      66: invokevirtual #208                // Method celestial/rrIJ.id_byte:(Ljava/lang/String;Z)Z
+      69: pop
+      70: aload_0
+      71: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+      74: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+      77: ldc           #209                // int 27
+      79: saload
+      80: aaload
+      81: checkcast     #211                // class celestial/rrwY_2
+      84: getstatic     #203                // Field strings09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/String;
+      87: ldc           #212                // int 3
+      89: aaload
+      90: getstatic     #84                 // Field booleans09f1f28026cd378cb9df490a64ac8f2a:[Z
+      93: ldc           #213                // int 7
+      95: baload
+      96: invokevirtual #214                // Method celestial/rrwY_2.id_byte:(Ljava/lang/String;Z)Z
+      99: pop
+     100: aload_0
+     101: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+     104: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+     107: ldc           #215                // int 28
+     109: saload
+     110: aaload
+     111: checkcast     #217                // class celestial/rrwN_2
+     114: invokevirtual #219                // Method celestial/rrwN_2.id_class:()V
+     117: getstatic     #223                // Field id_import:Lcelestial/QY;
+     120: getfield      #227                // Field celestial/QY.id_class:[Ljava/lang/Object;
+     123: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+     126: ldc           #228                // int 29
+     128: saload
+     129: aaload
+     130: checkcast     #230                // class celestial/Qw_1
+     133: invokevirtual #232                // Method celestial/Qw_1.id_break:()V
+     136: getstatic     #237                // Field celestial/rrZP.staticFieldsfda1a12b8e6d3a64af93b1c14ed22523:[Ljava/lang/Object;
+     139: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+     142: ldc           #238                // int 30
+     144: saload
+     145: aaload
+     146: checkcast     #234                // class celestial/rrZP
+     149: invokevirtual #239                // Method celestial/rrZP.id_class:()V
+     152: return
+
+  public boolean id_case();
+    Code:
+       0: getstatic     #246                // Field celestial/rruc_1.staticFields8976bba2dba834c8b8aad687eeef9d7a:[Ljava/lang/Object;
+       3: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+       6: ldc           #247                // int 1
+       8: saload
+       9: aaload
+      10: checkcast     #243                // class celestial/rruc_1
+      13: invokevirtual #248                // Method celestial/rruc_1.id_break:()V
+      16: getstatic     #253                // Field celestial/FontManager.staticFields71d6c26f697c30cf88e2ba2ddc0b4971:[Ljava/lang/Object;
+      19: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+      22: ldc           #204                // int 2
+      24: saload
+      25: aaload
+      26: checkcast     #250                // class celestial/FontManager
+      29: invokevirtual #254                // Method celestial/FontManager.id_volatile:()V
+      32: aload_0
+      33: new           #256                // class celestial/OC
+      36: dup
+      37: invokespecial #258                // Method celestial/OC."<init>":()V
+      40: astore        6
+      42: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+      45: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+      48: ldc           #212                // int 3
+      50: saload
+      51: aload         6
+      53: aastore
+      54: aload_0
+      55: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+      58: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+      61: ldc_w         #259                // int 4
+      64: saload
+      65: aaload
+      66: checkcast     #182                // class celestial/OA
+      69: aload_0
+      70: invokevirtual #263                // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      73: invokevirtual #269                // Method java/lang/Class.getPackageName:()Ljava/lang/String;
+      76: invokedynamic #284,  0            // InvokeDynamic #0:create:()Lcelestial/Oq_1;
+      81: invokeinterface #287,  3          // InterfaceMethod celestial/OA.id_class:(Ljava/lang/String;Lcelestial/Oq_1;)V
+      86: getstatic     #237                // Field celestial/rrZP.staticFieldsfda1a12b8e6d3a64af93b1c14ed22523:[Ljava/lang/Object;
+      89: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+      92: ldc_w         #288                // int 5
+      95: saload
+      96: aaload
+      97: checkcast     #234                // class celestial/rrZP
+     100: invokevirtual #289                // Method celestial/rrZP.id_break:()V
+     103: invokestatic  #292                // Method celestial/rrjC_2.id_break:()V
+     106: invokestatic  #297                // Method celestial/C_throws.id_class:()Lcelestial/C_catch;
+     109: invokeinterface #302,  1          // InterfaceMethod celestial/C_catch.id_break:()Lcelestial/C_case;
+     114: pop
+     115: aload_0
+     116: new           #158                // class celestial/ConfigManager
+     119: dup
+     120: invokespecial #303                // Method celestial/ConfigManager."<init>":()V
+     123: astore        7
+     125: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+     128: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+     131: ldc           #205                // int 6
+     133: saload
+     134: aload         7
+     136: aastore
+     137: aload_0
+     138: new           #305                // class celestial/rrvT
+     141: dup
+     142: invokespecial #306                // Method celestial/rrvT."<init>":()V
+     145: astore        8
+     147: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+     150: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+     153: ldc           #213                // int 7
+     155: saload
+     156: aload         8
+     158: aastore
+     159: aload_0
+     160: new           #163                // class celestial/rrwe_3
+     163: dup
+     164: invokespecial #307                // Method celestial/rrwe_3."<init>":()V
+     167: astore        9
+     169: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+     172: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+     175: ldc           #85                 // int 8
+     177: saload
+     178: aload         9
+     180: aastore
+     181: aload_0
+     182: new           #187                // class celestial/rrIJ
+     185: dup
+     186: invokespecial #308                // Method celestial/rrIJ."<init>":()V
+     189: astore        10
+     191: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+     194: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+     197: ldc           #86                 // int 9
+     199: saload
+     200: aload         10
+     202: aastore
+     203: aload_0
+     204: new           #211                // class celestial/rrwY_2
+     207: dup
+     208: invokespecial #309                // Method celestial/rrwY_2."<init>":()V
+     211: astore        11
+     213: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+     216: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+     219: ldc_w         #310                // int 10
+     222: saload
+     223: aload         11
+     225: aastore
+     226: aload_0
+     227: new           #153                // class celestial/rrvV
+     230: dup
+     231: invokespecial #311                // Method celestial/rrvV."<init>":()V
+     234: astore        12
+     236: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+     239: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+     242: ldc_w         #312                // int 11
+     245: saload
+     246: aload         12
+     248: aastore
+     249: aload_0
+     250: new           #217                // class celestial/rrwN_2
+     253: dup
+     254: invokespecial #313                // Method celestial/rrwN_2."<init>":()V
+     257: astore        13
+     259: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+     262: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+     265: ldc_w         #314                // int 12
+     268: saload
+     269: aload         13
+     271: aastore
+     272: aload_0
+     273: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+     276: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+     279: ldc_w         #315                // int 13
+     282: saload
+     283: aaload
+     284: checkcast     #217                // class celestial/rrwN_2
+     287: invokevirtual #316                // Method celestial/rrwN_2.id_break:()V
+     290: aload_0
+     291: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+     294: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+     297: ldc_w         #317                // int 14
+     300: saload
+     301: aaload
+     302: checkcast     #187                // class celestial/rrIJ
+     305: getstatic     #203                // Field strings09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/String;
+     308: ldc           #47                 // int 0
+     310: aaload
+     311: getstatic     #84                 // Field booleans09f1f28026cd378cb9df490a64ac8f2a:[Z
+     314: ldc           #47                 // int 0
+     316: baload
+     317: invokevirtual #319                // Method celestial/rrIJ.id_class:(Ljava/lang/String;Z)Z
+     320: pop
+     321: aload_0
+     322: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+     325: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+     328: ldc_w         #320                // int 15
+     331: saload
+     332: aaload
+     333: checkcast     #211                // class celestial/rrwY_2
+     336: getstatic     #84                 // Field booleans09f1f28026cd378cb9df490a64ac8f2a:[Z
+     339: ldc           #247                // int 1
+     341: baload
+     342: invokevirtual #323                // Method celestial/rrwY_2.id_break:(Z)V
+     345: aload_0
+     346: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+     349: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+     352: ldc_w         #324                // int 16
+     355: saload
+     356: aaload
+     357: checkcast     #163                // class celestial/rrwe_3
+     360: invokevirtual #326                // Method celestial/rrwe_3.id_byte:()V
+     363: aload_0
+     364: new           #27                 // class celestial/ClickGuiScreen
+     367: dup
+     368: invokespecial #327                // Method celestial/ClickGuiScreen."<init>":()V
+     371: astore        14
+     373: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+     376: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+     379: ldc_w         #328                // int 17
+     382: saload
+     383: aload         14
+     385: aastore
+     386: aload_0
+     387: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+     390: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+     393: ldc_w         #329                // int 18
+     396: saload
+     397: aaload
+     398: checkcast     #187                // class celestial/rrIJ
+     401: getstatic     #203                // Field strings09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/String;
+     404: ldc           #247                // int 1
+     406: aaload
+     407: getstatic     #84                 // Field booleans09f1f28026cd378cb9df490a64ac8f2a:[Z
+     410: ldc           #204                // int 2
+     412: baload
+     413: invokevirtual #319                // Method celestial/rrIJ.id_class:(Ljava/lang/String;Z)Z
+     416: pop
+     417: invokestatic  #333                // Method celestial/rrjC_2.id_protected:()Lcelestial/rrjC_2;
+     420: invokestatic  #333                // Method celestial/rrjC_2.id_protected:()Lcelestial/rrjC_2;
+     423: invokevirtual #336                // Method celestial/rrjC_2.id_class:()Ljava/util/List;
+     426: invokevirtual #339                // Method celestial/rrjC_2.id_class:(Ljava/util/List;)V
+     429: getstatic     #344                // Field celestial/rrwq_3.staticFieldsd739829cf0613d349fc0bda49435f7f4:[Ljava/lang/Object;
+     432: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+     435: ldc_w         #345                // int 19
+     438: saload
+     439: aaload
+     440: checkcast     #341                // class celestial/rrwq_3
+     443: invokevirtual #346                // Method celestial/rrwq_3.id_byte:()V
+     446: new           #348                // class celestial/rrCS
+     449: dup
+     450: invokespecial #349                // Method celestial/rrCS."<init>":()V
+     453: pop
+     454: invokestatic  #355                // Method java/lang/Runtime.getRuntime:()Ljava/lang/Runtime;
+     457: new           #357                // class java/lang/Thread
+     460: dup
+     461: getstatic     #46                 // Field staticFields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+     464: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+     467: ldc_w         #358                // int 20
+     470: saload
+     471: aaload
+     472: checkcast     #2                  // class celestial/rrQX
+     475: dup
+     476: invokestatic  #363                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+     479: pop
+     480: invokedynamic #371,  0            // InvokeDynamic #1:run:(Lcelestial/rrQX;)Ljava/lang/Runnable;
+     485: invokespecial #374                // Method java/lang/Thread."<init>":(Ljava/lang/Runnable;)V
+     488: invokevirtual #378                // Method java/lang/Runtime.addShutdownHook:(Ljava/lang/Thread;)V
+     491: getstatic     #46                 // Field staticFields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+     494: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+     497: ldc_w         #379                // int 21
+     500: saload
+     501: aaload
+     502: checkcast     #381                // class java/io/File
+     505: invokevirtual #384                // Method java/io/File.exists:()Z
+     508: ifne          575
+     511: getstatic     #46                 // Field staticFields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+     514: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+     517: ldc_w         #385                // int 22
+     520: saload
+     521: aaload
+     522: checkcast     #381                // class java/io/File
+     525: invokevirtual #388                // Method java/io/File.createNewFile:()Z
+     528: pop
+     529: getstatic     #46                 // Field staticFields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+     532: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+     535: ldc_w         #389                // int 23
+     538: saload
+     539: aaload
+     540: checkcast     #381                // class java/io/File
+     543: invokevirtual #393                // Method java/io/File.toPath:()Ljava/nio/file/Path;
+     546: getstatic     #84                 // Field booleans09f1f28026cd378cb9df490a64ac8f2a:[Z
+     549: ldc           #212                // int 3
+     551: baload
+     552: newarray       byte
+     554: getstatic     #84                 // Field booleans09f1f28026cd378cb9df490a64ac8f2a:[Z
+     557: ldc_w         #259                // int 4
+     560: baload
+     561: anewarray     #395                // class java/nio/file/OpenOption
+     564: invokestatic  #401                // Method java/nio/file/Files.write:(Ljava/nio/file/Path;[B[Ljava/nio/file/OpenOption;)Ljava/nio/file/Path;
+     567: pop
+     568: invokestatic  #404                // Method celestial/rrFU.id_class:()V
+     571: goto          575
+     574: astore_1
+     575: getstatic     #84                 // Field booleans09f1f28026cd378cb9df490a64ac8f2a:[Z
+     578: ldc_w         #288                // int 5
+     581: baload
+     582: ireturn
+    Exception table:
+       from    to  target type
+         511   571   574   Class java/lang/Exception
+
+  private static void id_continue();
+    Code:
+       0: bipush        41
+       2: newarray       short
+       4: dup
+       5: iconst_0
+       6: iconst_3
+       7: sastore
+       8: dup
+       9: iconst_3
+      10: bipush        8
+      12: sastore
+      13: dup
+      14: iconst_4
+      15: bipush        8
+      17: sastore
+      18: dup
+      19: bipush        7
+      21: iconst_1
+      22: sastore
+      23: dup
+      24: bipush        8
+      26: iconst_5
+      27: sastore
+      28: dup
+      29: bipush        9
+      31: iconst_3
+      32: sastore
+      33: dup
+      34: bipush        10
+      36: iconst_4
+      37: sastore
+      38: dup
+      39: bipush        11
+      41: iconst_2
+      42: sastore
+      43: dup
+      44: bipush        12
+      46: bipush        6
+      48: sastore
+      49: dup
+      50: bipush        13
+      52: bipush        6
+      54: sastore
+      55: dup
+      56: bipush        14
+      58: iconst_3
+      59: sastore
+      60: dup
+      61: bipush        15
+      63: iconst_4
+      64: sastore
+      65: dup
+      66: bipush        16
+      68: iconst_5
+      69: sastore
+      70: dup
+      71: bipush        17
+      73: bipush        7
+      75: sastore
+      76: dup
+      77: bipush        18
+      79: iconst_3
+      80: sastore
+      81: dup
+      82: bipush        21
+      84: iconst_1
+      85: sastore
+      86: dup
+      87: bipush        22
+      89: iconst_1
+      90: sastore
+      91: dup
+      92: bipush        23
+      94: iconst_1
+      95: sastore
+      96: dup
+      97: bipush        24
+      99: bipush        8
+     101: sastore
+     102: dup
+     103: bipush        25
+     105: iconst_5
+     106: sastore
+     107: dup
+     108: bipush        26
+     110: iconst_3
+     111: sastore
+     112: dup
+     113: bipush        27
+     115: iconst_4
+     116: sastore
+     117: dup
+     118: bipush        28
+     120: bipush        6
+     122: sastore
+     123: dup
+     124: bipush        29
+     126: bipush        20
+     128: sastore
+     129: dup
+     130: bipush        32
+     132: iconst_1
+     133: sastore
+     134: dup
+     135: bipush        33
+     137: iconst_2
+     138: sastore
+     139: dup
+     140: bipush        34
+     142: iconst_3
+     143: sastore
+     144: dup
+     145: bipush        35
+     147: iconst_4
+     148: sastore
+     149: dup
+     150: bipush        36
+     152: iconst_5
+     153: sastore
+     154: dup
+     155: bipush        37
+     157: bipush        6
+     159: sastore
+     160: dup
+     161: bipush        38
+     163: bipush        7
+     165: sastore
+     166: dup
+     167: bipush        39
+     169: bipush        8
+     171: sastore
+     172: putstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+     175: return
+
+  public celestial.rrwY_2 id_implements();
+    Code:
+       0: aload_0
+       1: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+       4: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+       7: ldc_w         #407                // int 35
+      10: saload
+      11: aaload
+      12: checkcast     #211                // class celestial/rrwY_2
+      15: areturn
+
+  private static void id_new();
+    Code:
+       0: bipush        6
+       2: anewarray     #129                // class java/lang/String
+       5: dup
+       6: iconst_0
+       7: new           #129                // class java/lang/String
+      10: dup
+      11: ldc_w         #409                // String autocfg
+      14: invokespecial #412                // Method java/lang/String."<init>":(Ljava/lang/String;)V
+      17: aastore
+      18: dup
+      19: iconst_1
+      20: new           #129                // class java/lang/String
+      23: dup
+      24: ldc_w         #409                // String autocfg
+      27: invokespecial #412                // Method java/lang/String."<init>":(Ljava/lang/String;)V
+      30: aastore
+      31: dup
+      32: iconst_2
+      33: new           #129                // class java/lang/String
+      36: dup
+      37: ldc_w         #409                // String autocfg
+      40: invokespecial #412                // Method java/lang/String."<init>":(Ljava/lang/String;)V
+      43: aastore
+      44: dup
+      45: iconst_3
+      46: new           #129                // class java/lang/String
+      49: dup
+      50: ldc_w         #409                // String autocfg
+      53: invokespecial #412                // Method java/lang/String."<init>":(Ljava/lang/String;)V
+      56: aastore
+      57: dup
+      58: iconst_4
+      59: new           #129                // class java/lang/String
+      62: dup
+      63: ldc_w         #414                // String INSTANCE
+      66: invokespecial #412                // Method java/lang/String."<init>":(Ljava/lang/String;)V
+      69: aastore
+      70: dup
+      71: iconst_5
+      72: new           #129                // class java/lang/String
+      75: dup
+      76: ldc_w         #416                // String start.celka
+      79: invokespecial #412                // Method java/lang/String."<init>":(Ljava/lang/String;)V
+      82: aastore
+      83: putstatic     #203                // Field strings09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/String;
+      86: return
+
+  private static celestial.rrQX[] id_package();
+    Code:
+       0: getstatic     #84                 // Field booleans09f1f28026cd378cb9df490a64ac8f2a:[Z
+       3: ldc_w         #310                // int 10
+       6: baload
+       7: anewarray     #2                  // class celestial/rrQX
+      10: dup
+      11: getstatic     #84                 // Field booleans09f1f28026cd378cb9df490a64ac8f2a:[Z
+      14: ldc_w         #312                // int 11
+      17: baload
+      18: getstatic     #46                 // Field staticFields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+      21: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+      24: ldc_w         #418                // int 40
+      27: saload
+      28: aaload
+      29: checkcast     #2                  // class celestial/rrQX
+      32: aastore
+      33: areturn
+
+  public celestial.rrwN_2 id_protected();
+    Code:
+       0: aload_0
+       1: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+       4: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+       7: ldc_w         #420                // int 37
+      10: saload
+      11: aaload
+      12: checkcast     #217                // class celestial/rrwN_2
+      15: areturn
+
+  public celestial.rrvT id_private();
+    Code:
+       0: aload_0
+       1: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+       4: getstatic     #24                 // Field shorts09f1f28026cd378cb9df490a64ac8f2a:[S
+       7: ldc_w         #423                // int 32
+      10: saload
+      11: aaload
+      12: checkcast     #305                // class celestial/rrvT
+      15: areturn
+
+  private static void id_final();
+    Code:
+       0: bipush        16
+       2: newarray       boolean
+       4: dup
+       5: iconst_5
+       6: iconst_1
+       7: bastore
+       8: dup
+       9: bipush        9
+      11: iconst_1
+      12: bastore
+      13: dup
+      14: bipush        10
+      16: iconst_1
+      17: bastore
+      18: dup
+      19: bipush        14
+      21: iconst_1
+      22: bastore
+      23: putstatic     #84                 // Field booleans09f1f28026cd378cb9df490a64ac8f2a:[Z
+      26: return
+
+  private static void id_volatile();
+    Code:
+       0: iconst_4
+       1: anewarray     #82                 // class java/lang/Object
+       4: astore_0
+       5: aload_0
+       6: iconst_0
+       7: new           #2                  // class celestial/rrQX
+      10: dup
+      11: getstatic     #203                // Field strings09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/String;
+      14: iconst_4
+      15: aaload
+      16: iconst_0
+      17: invokespecial #424                // Method "<init>":(Ljava/lang/String;I)V
+      20: aastore
+      21: aload_0
+      22: iconst_1
+      23: new           #381                // class java/io/File
+      26: dup
+      27: ldc_w         #426                // String C:\\Celestial\\Beta 1.16.5\\start.celka
+      30: invokespecial #427                // Method java/io/File."<init>":(Ljava/lang/String;)V
+      33: aastore
+      34: aload_0
+      35: iconst_2
+      36: iconst_0
+      37: invokestatic  #432                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      40: aastore
+      41: aload_0
+      42: iconst_3
+      43: iconst_1
+      44: anewarray     #2                  // class celestial/rrQX
+      47: dup
+      48: iconst_0
+      49: aload_0
+      50: iconst_0
+      51: aaload
+      52: checkcast     #2                  // class celestial/rrQX
+      55: aastore
+      56: aastore
+      57: aload_0
+      58: putstatic     #46                 // Field staticFields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+      61: return
+
+  private void id_native();
+    Code:
+       0: aload_0
+       1: getfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+       4: ifnonnull     16
+       7: aload_0
+       8: bipush        9
+      10: anewarray     #82                 // class java/lang/Object
+      13: putfield      #22                 // Field fields09f1f28026cd378cb9df490a64ac8f2a:[Ljava/lang/Object;
+      16: return
+}
